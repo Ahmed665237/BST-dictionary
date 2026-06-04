@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 using namespace std;
 class Node{
@@ -14,7 +15,7 @@ class Node{
 class BST{
     private:
         Node*root;
-        long long height,depth,size;
+        long long size=0;
         void insert(Node*&root,string data){
             if(!root){
                 root=new Node(data);
@@ -24,7 +25,7 @@ class BST{
             insert(root->right,data);
             else
             insert(root->left,data);
-        };// this is root is just an argument parameter and i wrote this to make it reccursion
+        }// this is root is just an argument parameter and i wrote this to make it reccursion
         // but not to make user enter an extra argument
     public:
         BST(){
@@ -33,6 +34,9 @@ class BST{
         void insert(string data){
             insert(root,data);// here we are using the actual root
             size++;
+        }
+        long long getsize(){
+            return size;
         }
         
 };

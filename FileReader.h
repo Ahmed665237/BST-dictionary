@@ -1,11 +1,12 @@
+#pragma once // as the compiler sees two diffrent BST types so this is made to prevent duplicate class definitions
 #include<iostream>
 #include"BST.h"
-using namespace std;
 #include<fstream>
+using namespace std;
 // this header file is responsible for:
 /*1- reading the txt file*/
-BST ReadFile(const string& filename){
-    BST tree;
+BST* ReadFile(const string& filename){
+    BST *tree=new BST();
     string input;
     ifstream file(filename);
     //this creates a filestream object called file
@@ -15,7 +16,7 @@ BST ReadFile(const string& filename){
         return tree;
     }
      while(getline(file,input))
-        tree.insert(input);
+        tree->insert(input);
         /*this is a while loop condition which runs till the end
         of the file and inserts inside a binary search tree*/
     file.close();
