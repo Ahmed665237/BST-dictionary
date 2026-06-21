@@ -1,12 +1,12 @@
 #pragma once
 #include<iostream>
 using namespace std;
-class Node{
+class BSTNODE{
     public:
     string data;
-    Node* left;
-    Node* right;
-    Node(string data){
+    BSTNODE* left;
+    BSTNODE* right;
+    BSTNODE(string data){
         this->data=data;
         this->left=NULL;
         this->right=NULL;
@@ -14,11 +14,11 @@ class Node{
 };
 class BST{
     private:
-        Node*root;
+        BSTNODE*root;
         long long size=0;
-        void insert(Node*&root,string data){
+        void insert(BSTNODE*&root,string data){
             if(!root){
-                root=new Node(data);
+                root=new BSTNODE(data);
                 return;
             }
             if(data>root->data)
